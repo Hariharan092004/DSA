@@ -1,0 +1,11 @@
+class Solution(object):
+    def removeElement(self, nums, val):
+        n = 0
+        for i in nums:
+            if i != val:
+                nums[n] = i
+                n = n+1
+        return n
+
+
+        
