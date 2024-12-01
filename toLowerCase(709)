@@ -1,0 +1,12 @@
+class Solution {
+    public String toLowerCase(String s) {
+        char[] t = s.toCharArray();
+        for(int i=0;i< t.length;i++){
+            int ass = (int)t[i];
+            if(ass >64 && ass<91){
+                t[i] = (char)(ass+32);
+            }
+        }
+        return String.valueOf(t);
+    }
+}
