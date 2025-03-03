@@ -1,0 +1,23 @@
+class Main {
+    public static void main(String[] args) {
+        int[] nums = {2,13,4,33,7,54,25,8,9,17};
+        bubble(10,nums);
+        for(int a:nums){
+            System.out.println(a);
+        }
+        
+    }
+    static void bubble(int n, int[] nums){
+        n = nums.length;
+        int temp;
+        for(int i=0;i<n;i++){
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
