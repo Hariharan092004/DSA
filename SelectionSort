@@ -1,0 +1,26 @@
+class Main {
+    public static void main(String[] args) {
+       int[] nums = {2,13,4,33,7,54,25,8,9,17};
+        selectionSort(10,nums);
+        for(int a:nums){
+            System.out.println(a);
+        } 
+        
+    }
+    static void selectionSort(int n, int[] nums){
+        int temp;
+        int min_idx;
+        
+        for(int i=0;i<n;i++){
+            min_idx = i;
+            for(int j=i+1;j<n;j++){
+                if(nums[min_idx]> nums[j]){
+                    min_idx = j;
+                }
+            }
+            temp = nums[min_idx];
+            nums[min_idx] = nums[i];
+            nums[i] = temp;
+        }
+    }
+}
