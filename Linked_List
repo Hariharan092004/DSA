@@ -1,0 +1,81 @@
+class Main {
+    public static void main(String[] args) {
+        LinkedList l = new LinkedList();
+        l.insert(100);
+        l.insert(200);
+        l.insert(300);
+        l.insert(400);
+        l.display();
+        l.insertPos(3,450);
+        l.display();
+        l.delete(4);
+        l.display();
+    }
+    
+}
+class LinkedList{
+        Node head;
+        class Node{
+            int data;
+            Node next;//Self Refarencial variable
+             
+            Node(int value){
+                data = value;
+                next = null;
+            }
+        }
+        LinkedList(){
+            head = null;
+        }
+        
+        void insert(int val){
+            Node newnode = new Node(val);
+            if(head == null){
+                head = newnode;
+                return;
+            }else{
+                newnode.next = head;
+                head = newnode;
+            }
+        }
+        void display(){
+            Node temp = head;
+            while(temp!=null){
+                System.out.print(temp.data + "---> ");
+                temp = temp.next;
+            }
+        }
+        void insertPos(int p, int val){
+            Node newnode = new Node(val);
+            if(p == 0){
+                insert(val);
+                return;
+            }
+            else{
+                Node temp = head;
+                for(int i = 1;i<p-1;i++){
+                    if(temp == null){
+                        System.out.println("Insertion not possible");
+                        return;
+                    }
+                    temp = temp.next;
+                    
+                }
+                newnode.next = temp.next;
+                temp.next = newnode;
+            }
+        }
+        void delete(int p){
+            Node temp = head;
+            for(int i =1;i<p-1;i++){
+                if(temp == null){
+                    System.out.println("Deletion not possible");
+                    return;
+                }
+                temp = temp.next;
+            }
+            Node value = temp.next;
+            temp.next = value.next;
+            value = null;
+        }
+}
