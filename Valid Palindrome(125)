@@ -1,0 +1,14 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder removeSpecial = new StringBuilder();
+        for(char i:s.toCharArray()){
+            if(Character.isLetterOrDigit(i)){
+                removeSpecial.append(Character.toLowerCase(i));
+            }
+        }
+        String clean = removeSpecial.toString();
+        String reverse = removeSpecial.reverse().toString();
+        
+        return clean.equals(reverse);
+    }
+}
