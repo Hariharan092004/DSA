@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder filter = new StringBuilder();
+        for(char c:s.toCharArray()){
+            if(Character.isLetterOrDigit(c)){
+                filter.append(Character.toLowerCase(c));
+            }
+        }
+        String clean = filter.toString();
+        StringBuilder reverse = new StringBuilder();
+        for(int i=clean.length()-1;i>=0;i--){
+            reverse.append(clean.charAt(i));
+        }
+        return clean.equals(reverse.toString());
+    }
+}
